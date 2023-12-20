@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Disease extends Model
 {
@@ -12,4 +13,9 @@ class Disease extends Model
         'suggestion',
         'image_path',
     ];
+
+    public function knowledgeBases(): HasMany
+    {
+        return $this->hasMany(KnowledgeBase::class);
+    }
 }

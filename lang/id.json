@@ -209,5 +209,9 @@
     "Code": "Kode",
     "Disease": "Penyakit",
     "Name": "Nama",
-    "Diagnoses": "Diagnosa"
+    "Diagnoses": "Diagnosa",
+    "Created at": "Dibuat pada",
+    "Updated at": "Diubah pada",
+    "Description": "Deskripsi",
+    "Suggestion": "Saran"
 }

@@ -31,7 +31,6 @@ class Result extends Model
             ->withPivot('rule');
     }
 
-
     public function diagnosis(): HasOne
     {
         return $this->hasOne(ResultDiagnosis::class)->ofMany('sequence', 'MIN');

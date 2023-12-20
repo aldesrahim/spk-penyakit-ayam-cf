@@ -19,6 +19,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Berikan Master Coliprim dosis: 1 gr/1 ltr air selama 3-4 hari (1/2 hari) berturut-turut. setelah itu berikan Master Vit-Stress selama 3-4 hari untuk membantu proses penyembuhan.",
                 'image_path' => 'diseases-image/01BerakKapur.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Kolera Ayam (Fowl Cholera)',
@@ -26,6 +27,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Berikan Master Kolericid dosis: 1 gr/1 ltr air selama 3-4 hari berturut-turut. berikan Master Vit-Stress dosis: 1 gr/3 ltr air untuk membantu proses penyembuhan.",
                 'image_path' => 'diseases-image/02KoleraAyam.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Flu Burung (Avian Influenza)',
@@ -33,6 +35,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Tidak ada obat.\nDianjurkan untuk disingkirkan dan dimusnakan dengan cara dibakar dan bangkainya dikubur.",
                 'image_path' => 'diseases-image/03FluBurung.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Tetelo (Newcastle Disease)',
@@ -40,6 +43,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Vaksinasi harus dilakukan untuk memperoleh kekebalan. Jenis vaksin yang kami gunakan adalah ND Lasota yang kami beli dari PT. SHS. Vaksinasi ND yang pertama, kami lakukan dengan cara pemberian melalui tetes mata pada hari ke 2. Untuk berikutnya pemberian vaksin kami lakukan dengan cara suntikan di intramuskuler otot dada.",
                 'image_path' => 'diseases-image/04Tetelo.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Tipus Ayam (Fowl Typhoid)',
@@ -47,6 +51,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Berikan Neo Terramycin dosis: 2 sendok teh/3,8 ltr air selama 3-4 hari berturut-turut.",
                 'image_path' => 'diseases-image/05Tipus Ayam.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Berak Darah (Coccidosis)',
@@ -54,6 +59,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Berikan Master Coliprim dosis: 1gr/1 ltr air selama 3-4 hari (1/2 hari) berturut-turut. setelah pengobatan berikan Vitamin Master Vit-Stress dosis: 1gr/3 ltr selama 3-4 hari berturut-turut.",
                 'image_path' => 'diseases-image/06Berak Darah.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Gumboro (Infectious Bursal Disease)',
@@ -61,6 +67,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Tidak ada obat.\nAir gula 30-50 gr/ltr air dan ditambah Master Vit-Stress dosis: 1 gr/2 ltr air untuk meningkatkan kondisi tubuh.",
                 'image_path' => 'diseases-image/07Gumboro.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Salesma Ayam (Infectious Coryza)',
@@ -68,6 +75,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Berikan Master Cyprosyn-Plus dosis: 1 gr/1 ltr air selama 3-4 hari berturut-turut. selama pengobatan berikan vitamin Master Vit-Stress dosis: 1 gr/3 ltr air untuk membantu proses pengobatan.",
                 'image_path' => 'diseases-image/08Snot.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Batuk Ayam Menahun (Infectious Bronchitis)',
@@ -75,6 +83,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Tidak ada obat.\nBerikan vitamin Master Vit-Stress dosis: 1 gr/1 ltr air untuk memperbaiki kondisi tubuh",
                 'image_path' => 'diseases-image/09IB.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Busung Ayam (Lymphoid Leukosis)',
@@ -82,6 +91,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Tidak ada obat.\nSegera disingkirkan atau dimusnakan.",
                 'image_path' => 'diseases-image/10BusungAyam.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Batuk Darah (Infectious Laryngo Tracheitis)',
@@ -89,6 +99,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Tidak ada obat.\nBerikan vitamin Master Vit-Stress dosis: 1 gr/1 ltr air untuk membantu memperbaiki kondisi tubuh.",
                 'image_path' => 'diseases-image/11Batuk Darah.png',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Mareks (Mareks Disease)',
@@ -96,6 +107,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Tidak ada obat.\nDianjurkan untuk disingkirkan dan dimusnakan dengan cara dibakar dan bangkainya dikubur.",
                 'image_path' => 'diseases-image/12 Marek.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'name' => 'Produksi Telur (Egg Drop Syndrome 76/EDS 76)',
@@ -103,6 +115,7 @@ class DiseaseSeeder extends Seeder
                 'suggestion' => "Tidak ada obat.\nBerikan vitamin untuk membantu kondisi tubuh.",
                 'image_path' => 'diseases-image/13EDS.jpg',
                 'created_at' => now(),
+                'updated_at' => now(),
             ],
         ];
 
