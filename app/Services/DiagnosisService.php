@@ -110,13 +110,15 @@ class DiagnosisService
                 $cf = $cfGroup[$diseaseId];
                 $cfc = $cfcGroup[$diseaseId] ?? [];
 
-                $resultDiagnoses[] = [
-                    'result_id' => $result->id,
-                    'disease_id' => $diseaseId,
-                    'certainty_factor' => $diagnosis,
-                    'sequence' => $sequence,
-                    'created_at' => now(),
-                ];
+                if ($diagnosis > 0) {
+                    $resultDiagnoses[] = [
+                        'result_id' => $result->id,
+                        'disease_id' => $diseaseId,
+                        'certainty_factor' => $diagnosis,
+                        'sequence' => $sequence,
+                        'created_at' => now(),
+                    ];
+                }
 
                 $innerSequence = 1;
                 foreach ($cf as $cfAttribute) {
@@ -154,6 +156,8 @@ class DiagnosisService
 
                 return $carry;
             }, []);
+
+            throw_if(blank($resultDiagnoses), 'Tidak dapat melakukan diagnosa, kemungkinan besar ayam sehat, atau tambahkan gejala lain.');
 
             ResultDiagnosis::insert($resultDiagnoses);
             ResultDisease::insert($resultDiseases);
