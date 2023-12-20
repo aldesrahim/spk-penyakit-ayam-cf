@@ -58,7 +58,7 @@ class ResultResource extends Resource
                                     ->formatStateUsing(
                                         fn ($record) => sprintf(
                                             '%s (%s)',
-                                            DiagnosisService::getRuleOptions()[$record->pivot->rule + 0],
+                                            DiagnosisService::getRuleOptions()[(string)($record->pivot->rule + 0)],
                                             $record->pivot->rule + 0
                                         )
                                     )
