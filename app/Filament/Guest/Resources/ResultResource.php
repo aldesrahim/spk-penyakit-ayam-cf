@@ -55,7 +55,13 @@ class ResultResource extends Resource
                                     ->columnSpan(['lg' => 2, 'default' => 1]),
                                 Forms\Components\TextInput::make('rule')
                                     ->translateLabel()
-                                    ->formatStateUsing(fn ($record) => DiagnosisService::getRuleOptions()[$record->pivot->rule])
+                                    ->formatStateUsing(
+                                        fn ($record) => sprintf(
+                                            '%s (%s)',
+                                            DiagnosisService::getRuleOptions()[$record->pivot->rule + 0],
+                                            $record->pivot->rule + 0
+                                        )
+                                    )
                                     ->columnSpan(['lg' => 1, 'default' => 1]),
                             ])
                             ->columns(['lg' => 3, 'default' => 1]),
@@ -63,7 +69,7 @@ class ResultResource extends Resource
                             ->heading('Basis Pengetahuan (berdasarkan gejala)')
                             ->collapsible()
                             ->collapsed()
-                            ->schema(fn ($livewire) => static::getKnowledgeBasesSchema($livewire)),
+                            ->schema(fn ($state) => static::getKnowledgeBasesSchema($state)),
                         Forms\Components\Section::make('calculations')
                             ->heading('Rumus & Perhitungan CF')
                             ->collapsible()
@@ -71,18 +77,14 @@ class ResultResource extends Resource
                             ->schema([
                                 Forms\Components\Placeholder::make('calculation_view')
                                     ->label(false)
-                                    ->content(function ($livewire, $record) {
-                                        return view('filament.guest.calculation-process', [
-                                            'data' => $livewire->data,
-                                            'record' => $record,
-                                            'diseases' => $record->diseases()
-                                                ->with('disease')
-                                                ->orderBy('disease_id')
-                                                ->orderBy('sequence')
-                                                ->get()
-                                                ->groupBy('disease_id')
-                                        ]);
-                                    })
+                                    ->content(fn ($record) => view('filament.guest.calculation-process', [
+                                        'diseases' => $record->diseases()
+                                            ->with('disease')
+                                            ->orderBy('disease_id')
+                                            ->orderBy('sequence')
+                                            ->get()
+                                            ->groupBy('disease_id')
+                                    ]))
                             ]),
                     ]),
                 Forms\Components\Section::make('Hasil Diagnosa')
@@ -128,17 +130,17 @@ class ResultResource extends Resource
                             ->heading('Kemungkinan Lain')
                             ->collapsible()
                             ->collapsed()
-                            ->visible(fn ($state) => $state)
+                            ->visible(fn ($state) => $state['has_other_diagnoses'])
                             ->schema(fn ($record) => static::getOtherDiagnosesSchema($record))
                     ]),
 
             ]);
     }
 
-    public static function getKnowledgeBasesSchema($livewire)
+    public static function getKnowledgeBasesSchema($data)
     {
         $items = [];
-        foreach ($livewire->data['knowledge_bases'] as $knowledgeBase) {
+        foreach ($data['knowledge_bases'] as $knowledgeBase) {
             $items[] = Forms\Components\Grid::make('knowledge_base_item')
                 ->label(false)
                 ->schema([
