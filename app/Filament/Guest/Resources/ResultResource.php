@@ -18,7 +18,7 @@ class ResultResource extends Resource
 {
     protected static ?string $model = Result::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
 
     protected static ?string $modelLabel = 'Hasil Diagnosa';
 
@@ -173,7 +173,7 @@ class ResultResource extends Resource
 
         $items = [];
         foreach ($otherDiagnoses as $diagnosis) {
-            $cf = $diagnosis->certainty_factor;
+            $cf = $diagnosis->certainty_factor + 0;
             $percentage = $cf * 100;
             $content = new HtmlString(
                 sprintf(

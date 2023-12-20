@@ -65,3 +65,16 @@
         </li>
     @endforeach
 </ol>
+<div class="mt-2">
+    <p class="text-lg">Referensi:</p>
+    <ul class="list-disc ml-10">
+        <li>
+            <a
+                href="https://www.teamtrainit.com/demo/algoritma/cf/index.php"
+                class="flex items-center underline text-blue-500"
+            >
+                Algoritma CF
+            </a>
+        </li>
+    </ul>
+</div>

@@ -208,5 +208,6 @@
     "Rule": "Aturan",
     "Code": "Kode",
     "Disease": "Penyakit",
-    "Name": "Nama"
+    "Name": "Nama",
+    "Diagnoses": "Diagnosa"
 }

@@ -25,7 +25,7 @@ class DiagnosisPage extends Page implements HasForms
 {
     use InteractsWithForms;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     protected static string $view = 'filament.guest.pages.diagnosis-page';
 
@@ -69,11 +69,13 @@ class DiagnosisPage extends Page implements HasForms
                                     ->columnSpan(['lg' => 2, 'default' => 1]),
                             ]),
                         Repeater::make('diagnoses')
+                            ->translateLabel()
                             ->minItems(1)
                             ->defaultItems(1)
                             ->orderColumn(false)
                             ->schema([
                                 Select::make('symptom_id')
+                                    ->label('Gejala')
                                     ->required()
                                     ->options(fn ($state) => $this->getSymptomBaseQuery($state)->pluck('name', 'id'))
                                     ->searchable()
@@ -85,6 +87,7 @@ class DiagnosisPage extends Page implements HasForms
                                     )
                                     ->columnSpan(['lg' => 2, 'default' => 1]),
                                 Select::make('rule')
+                                    ->translateLabel()
                                     ->required()
                                     ->options(DiagnosisService::getRuleOptions())
                                     ->columnSpan(['lg' => 1, 'default' => 1]),

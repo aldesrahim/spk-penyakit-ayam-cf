@@ -13,7 +13,7 @@ class DiseaseResource extends Resource
 {
     protected static ?string $model = Disease::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-bug-ant';
 
     protected static ?string $modelLabel = 'Penyakit';
 
