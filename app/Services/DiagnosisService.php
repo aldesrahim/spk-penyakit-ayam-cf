@@ -14,15 +14,15 @@ class DiagnosisService
     public static function getRuleOptions(): array
     {
         return [
-            '1' => 'Pasti ya',
-            '0.8' => 'Hampir pasti ya',
-            '0.6' => 'Kemungkinan besar ya',
-            '0.4' => 'Mungkin ya',
-            '-0.2' => 'Tidak tahu',
-            '-0.4' => 'Mungkin tidak',
-            '-0.6' => 'Kemungkinan besar tidak',
-            '-0.8' => 'Hampir pasti tidak',
-            '-1' => 'Pasti tidak',
+            '1' => 'Pasti ya (1)',
+            '0.8' => 'Hampir pasti ya (0.8)',
+            '0.6' => 'Kemungkinan besar ya (0.6)',
+            '0.4' => 'Mungkin ya (0.4)',
+            '-0.2' => 'Tidak tahu (-0.2)',
+            '-0.4' => 'Mungkin tidak (-0.4)',
+            '-0.6' => 'Kemungkinan besar tidak (-0.6)',
+            '-0.8' => 'Hampir pasti tidak (-0.8)',
+            '-1' => 'Pasti tidak (-1)',
         ];
     }
 
@@ -110,15 +110,13 @@ class DiagnosisService
                 $cf = $cfGroup[$diseaseId];
                 $cfc = $cfcGroup[$diseaseId] ?? [];
 
-                if ($diagnosis > 0) {
-                    $resultDiagnoses[] = [
-                        'result_id' => $result->id,
-                        'disease_id' => $diseaseId,
-                        'certainty_factor' => $diagnosis,
-                        'sequence' => $sequence,
-                        'created_at' => now(),
-                    ];
-                }
+                $resultDiagnoses[] = [
+                    'result_id' => $result->id,
+                    'disease_id' => $diseaseId,
+                    'certainty_factor' => $diagnosis,
+                    'sequence' => $sequence,
+                    'created_at' => now(),
+                ];
 
                 $innerSequence = 1;
                 foreach ($cf as $cfAttribute) {

@@ -56,11 +56,7 @@ class ResultResource extends Resource
                                 Forms\Components\TextInput::make('rule')
                                     ->translateLabel()
                                     ->formatStateUsing(
-                                        fn ($record) => sprintf(
-                                            '%s (%s)',
-                                            DiagnosisService::getRuleOptions()[(string)($record->pivot->rule + 0)],
-                                            $record->pivot->rule + 0
-                                        )
+                                        fn ($record) => DiagnosisService::getRuleOptions()[(string)($record->pivot->rule + 0)]
                                     )
                                     ->columnSpan(['lg' => 1, 'default' => 1]),
                             ])
