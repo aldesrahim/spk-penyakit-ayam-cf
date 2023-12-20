@@ -14,7 +14,9 @@ return new class () extends Migration {
             $table->id();
             $table->foreignIdFor(\App\Models\Result::class)->constrained();
             $table->foreignIdFor(\App\Models\Disease::class)->constrained();
-            $table->decimal('certainty_factor', places: 5)->nullable()->default(0);
+            $table->foreignIdFor(\App\Models\Symptom::class)->nullable()->constrained();
+            $table->decimal('certainty_factor', 14, 8)->nullable()->default(0);
+            $table->unsignedInteger('sequence');
             $table->timestamps();
         });
     }

@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ResultSymptom extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'result_id',
+        'symptom_id',
+        'rule',
+    ];
+
+    public function symptom(): BelongsTo
+    {
+        return $this->belongsTo(Symptom::class);
+    }
 }
