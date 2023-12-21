@@ -71,7 +71,7 @@ class DiagnosisService
             $cfcGroupCount = count($cfcGroup[$diseaseId]);
 
             $prevCf = $cfcGroupCount === 0
-                ? $cfGroup[$diseaseId][$cfGroupCount - 1]['value']
+                ? $cfGroup[$diseaseId][$cfGroupCount - 2]['value']
                 : $cfcGroup[$diseaseId][$cfcGroupCount - 1];
 
             /**
@@ -87,8 +87,8 @@ class DiagnosisService
              */
             $currentCfc = match (true) {
                 $currentCf > 0 && $prevCf > 0 => $prevCf + ($currentCf * (1 - $prevCf)),
-                $currentCf < 0 && $prevCf < 0 => $prevCf + ($currentCf * (1 + $prevCf)), //
-                default => ($prevCf + $currentCf) / (1 - min($prevCf, $currentCf)), //
+                $currentCf < 0 && $prevCf < 0 => $prevCf + ($currentCf * (1 + $prevCf)),
+                default => ($prevCf + $currentCf) / (1 - min($prevCf, $currentCf)),
             };
 
             $cfcGroup[$diseaseId][] = $currentCfc;
